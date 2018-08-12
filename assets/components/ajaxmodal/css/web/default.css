@@ -1,0 +1,174 @@
+.block_img {
+    overflow: hidden;
+    height: 198px;
+    display: block;
+    position: relative;
+    margin-bottom: 20px;
+}
+.block_img:hover .ajaxmodalbutton {
+	bottom: 0;
+}
+.wrap_product {
+    display: inline-block;
+    vertical-align: top;
+    width: 51%;
+}
+.options {
+    display: inline-block;
+    vertical-align: top;
+    width: 47%;
+    padding-left: 30px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+a.ajaxmodalbutton {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    text-align: center;
+    color: #000;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    width: 100%;
+    background: rgba(255,255,255,.85);
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+}
+
+/**
+ * Overlay
+ * -- only show for tablet and up
+ */
+@media only screen and (min-width: 40em) {
+  .ajaxmodal-overlay {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    -webkit-transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), visibility 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+    transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), visibility 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  }
+  .ajaxmodal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+/**
+ * Modal
+ */
+.ajaxmodal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  margin: 0 auto;
+  background-color: #fff;
+  width: 600px;
+  max-width: 75rem;
+  min-height: 20rem;
+  padding: 1rem;
+  border-radius: 3px;
+  opacity: 0;
+  overflow-y: auto;
+  visibility: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.ajaxmodal .close-ajaxmodal {
+  position: absolute;
+  cursor: pointer;
+  top: 5px;
+  right: 15px;
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), transform 0.6s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+.ajaxmodal .close-ajaxmodal svg {
+  width: 1.75em;
+  height: 1.75em;
+}
+.ajaxmodal .ajaxmodal-content {
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+.ajaxmodal.active {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+.ajaxmodal.active .ajaxmodal-content {
+  opacity: 1;
+}
+.ajaxmodal.active .close-ajaxmodal {
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+  opacity: 1;
+}
+
+/**
+ * Mobile styling
+ */
+@media only screen and (max-width: 39.9375em) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .ajaxmodal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 0;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    padding: 0 !important;
+  }
+
+  .close-ajaxmodal {
+    right: 20px !important;
+  }
+}
